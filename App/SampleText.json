@@ -1,0 +1,16 @@
+{
+    "Questions": [
+        {
+            "Question": "What are your weaknesses?",
+            "Keywords": "Improving",
+            "Time": 2,
+            "Answer": "Ummm well I think that I have some weaknesses. Im kind of a perfectionist when it comes to things"
+        },
+        {
+            "Question": "Tell me about yourself",
+            "Keywords": "Initiative, Motivated",
+            "Time": 4,
+            "Answer": "I am a student at uoft currently studying Computer Science."
+        }
+    ]
+}
