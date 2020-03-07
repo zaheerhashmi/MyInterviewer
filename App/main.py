@@ -1,7 +1,8 @@
 from os import path
 import json
+import pandas as pd
 
-
+table = pd.read_csv(path.join(path.dirname(__file__), "QuestionData.csv"))
 
 def question(qID):
     # This function returns an audio file!
