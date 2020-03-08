@@ -6,26 +6,32 @@ import { render } from '@testing-library/react';
 function App() {
 
   var [counter, setCounter] = useState(0)
+  const title = "Mock Interviewer"
 
+  const introduction = "Quisque eget felis sodales risus volutpat \
+    faucibus non ac libero. Pellentesque eleifend fringilla porta. \
+    Duis eu vestibulum turpis, nec fringilla tortor. Proin posuere \
+    placerat tellus eget dapibus. Donec vel urna luctus, mattis nibh \
+    ut, mattis dolor. Curabitur luctus nisi porta, pulvinar neque et, \
+    pharetra urna. Sed congue ipsum a dictum mollis. Proin vel purus"
+  
   useEffect(() => {
     console.log("page has rerendered");
     // make request from API
-  }, [counter]);
+  }, []);
 
 
   return (
     <div className="App">
-      <form className = "search-form">
-        <input className = "search-bar" type="text"/>
-        <button className = "search-button" type="submit">
-          Search
-          </button>
-      </form>
-      <h1 onClick={() => setCounter(counter+1)}>
-        {counter}
-        </h1>
-      <h2>subheader?</h2>
-      <body>body?</body>
+    <form>
+     <h1>{title}</h1>
+     <h2>{introduction}</h2>
+     <label for="name">Enter your name to continue</label>
+     <input name="name"></input>
+     <button type="submit">
+       Start
+     </button>
+     </form>
     </div>
   );
 }
