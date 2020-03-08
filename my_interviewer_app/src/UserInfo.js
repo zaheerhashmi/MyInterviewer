@@ -1,21 +1,25 @@
 import React from 'react';
 
 class UserInfo {
-    constructor(name, score) {
+    constructor(name, score, numOfQsAnswered) {
         this._name = name;
         this._score = score;
+        this._numOfQsAnswered = numOfQsAnswered;
+
+      //  this.score = this.score.bind(this);
+    }
+    score (value) {
+        this._score = value
     }
 
-    addScore(points) {
-        // increase score by points points
+    name (name) {
+        this._name = name
     }
 
-    getScore() {
-        return this._score
-    }
-
-    getName() {
-        return this._name
+    numOfQsAnswered (value) {
+        this._numOfQsAnswered = value
     }
 
 }
+
+export default UserInfo;

@@ -12,6 +12,7 @@ import EndScreen from './EndScreen';
 import Error from './Error';
 import { match } from 'assert';
 
+const thing = 5
 
 function App() {
 
@@ -29,3 +30,14 @@ function App() {
 }
 
 export default App;
+
+
+/*
+ TO DO:
+ - back end calls
+ - figure out Google API stuff (read from files in directory?)
+ - getting user audio
+ - finish UI
+ - limit num of Qs to some constant
+ - figure out how to store user data
+*/

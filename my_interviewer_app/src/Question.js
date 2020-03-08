@@ -7,38 +7,35 @@ import { withRouter } from "react-router";
 
 export class Question extends React.Component {
 
-   /* function play() {
-        var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
-        audio.play();
-    } */
-
-
     render(){
+
         var questionId = this.props.match.params.questionNum
-        var nextQuestionLink= '/question/'+ (parseInt(questionId,10)+1)
+        var linkToFeedback= '/feedback/'+ questionId
+       // var linkToFeedback= '/question/'+ (parseInt(questionId,10)+1)
     return (
         <div className="Question">
-        <div>
             <h1>Question page {questionId} </h1>
             <h2>I will be reading the question</h2>
+            <button 
+                title = "play sound"
+                type = "button"
+                className = "action-button"
+                onClick = {() => 
+                    {var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
+                    audio.play();
+                    console.log("play audio")}} >
+                Play Audio
+             </button>
+             <br></br>
             <button
-            title = "next-question"
-            type = "button"
-            className = "action-button"
-            onClick = {
-                () => {this.props.history.push(nextQuestionLink);
-                console.log("nav to next q")}} >
-                Next Question
+                title = "next-question"
+                type = "button"
+                className = "action-button"
+                onClick = {
+                    () => {this.props.history.push(linkToFeedback);}} >
+                See Feedback
             </button>
-        </div>
-         <button 
-            title = "play sound"
-            type = "button"
-            onClick = {
-                () => console.log("play audio")} >
-             Play Audio but only once user has interacted
-         </button>
-        </div>
+            </div>
       );
     }
 }
