@@ -33,9 +33,10 @@ export default App;
 
 /*
  TO DO:
+ - send it to backend and analyze
+ - return feedback to Feedback component
+ - render views in Feedback
+
  - back end calls
  - figure out Google API stuff (read from files in directory?)
- - getting user audio
- - finish UI
- - figure out how to store user data
 */

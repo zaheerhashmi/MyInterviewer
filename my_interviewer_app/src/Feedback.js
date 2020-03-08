@@ -12,9 +12,18 @@ export class Feedback extends React.Component {
         var linkToNextQuestion= '/question/'+ (parseInt(feedbackId,10)+1)
         return (
             <div className="Feedback">
-            <h1> Feedback page {feedbackId}</h1>
-            <h2>I will be giving you feedback {Constants.user._name} </h2>
-            <h2>sup{JSON.stringify(Constants.user)}</h2>
+            <h1> Feedback for question {feedbackId}</h1>
+            <h2>I am here to judge your response and help you improve, {Constants.user._name}.</h2>
+
+             <audio id="PlayAnswer" controls="controls" src={Constants.recordedAudioAnswer} type="audio/mp3" />
+
+             <button onClick= {() => document.getElementById("PlayAnswer").play()}>
+                 Play
+            </button>
+            <button onClick= {() => document.getElementById("PlayAnswer").pause()}>
+                 Pause
+            </button>
+
             <button
             title = "next-question"
             type = "button"
@@ -25,7 +34,7 @@ export class Feedback extends React.Component {
                 } else {
                     this.props.history.push(linkToNextQuestion);
                 }}} >
-                Next Interview Question
+                Awesome! Let's move on
             </button>
             </div>
         );

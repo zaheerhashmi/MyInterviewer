@@ -4,18 +4,47 @@
   background: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
 }
 
-/*.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}*/
+.Home {
+  text-align: left;
+  padding: 5vh;
+  background: linear-gradient(to right, #ff8177 0%, #ff867a 0%, #ff8c7f 21%, #f99185 52%, #cf556c 78%, #b12a5b 100%);
+}
 
-/*@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
+.Question {
+  text-align: left;
+  padding: 5vh;
+  background-color: #FF5858;
+}
 
-.App-header {
+
+.Feedback {
+  text-align: left;
+  padding: 5vh;
+  background: linear-gradient(60deg, #abecd6 0%, #fbed96 100%);
+}
+
+
+.EndScreen {
+  text-align: center;
+  padding: 5vh;
+  background: linear-gradient(to top, #505285 0%, #585e92 12%, #65689f 25%, #7474b0 37%, #7e7ebb 50%, #8389c7 62%, #9795d4 75%, #a2a1dc 87%, #b5aee4 100%);
+}
+
+.action-button {
+	background-color: #313638;
+  border-radius:17px;
+	border:0px solid #1f2f47;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	padding:6px 13px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #263666;
+}
+
+/*.App-header {
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
@@ -24,7 +53,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-link {
   color: #61dafb;

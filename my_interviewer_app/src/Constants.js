@@ -11,3 +11,6 @@ var idList = []
 var blob = ""
 
 export default Constants;
+var recordedAudioAnswer = ""
+
+export default Constants
