@@ -7,7 +7,6 @@ app = Flask(__name__)
 
 @app.route("/getQuestions", methods=['GET'])
 def getQuestions():
-    print("HI")
     return questionsID()
 
 @app.route("/qID/<id>", methods=['GET'])

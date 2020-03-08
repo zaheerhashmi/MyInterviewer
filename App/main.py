@@ -1,6 +1,7 @@
 from os import path
 import json
 import pandas as pd
+import random
 
 table = pd.read_csv(path.join(path.dirname(__file__), "QuestionData.csv"))
 
@@ -9,13 +10,15 @@ def question(qID):
     return "What are your weaknesses?"
 
 def questionsID():
-    # Randomly picks 5 questions?
-    return {"qId": ["1", "4"]}
+    # Randomly picks 3 questions?
+    count_row = df.shape[0]
+    indexes = random.sample(range(1, count_row), 3)
+    return {"qId": indexes}
 
 def audio(body):
-    with open(path.join(path.dirname(__file__), "SampleText.json"), 'r') as json_file:
+    with open(path.join(path.dirname(__file__), "SampleAnswer.json"), 'r') as json_file:
         data = json.load(json_file)
-        assessText(data["Questions"][0])
+        assessText(data["Answers"][0])
     return "Hello World!"
 
 
@@ -36,5 +39,7 @@ def assessText(json):
 
     print("Ums:", umCount)
     print("likes:", likeCount)
+
+    # Asses them based 
 
 
