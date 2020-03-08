@@ -20,7 +20,7 @@ export class Feedback extends React.Component {
             type = "button"
             className = "action-button"
             onClick = {() => {
-                if (Constants.user._numOfQsAnswered > 3) {
+                if (Constants.user._numOfQsAnswered >= 3) {
                     this.props.history.push('/thankyou');
                 } else {
                     this.props.history.push(linkToNextQuestion);

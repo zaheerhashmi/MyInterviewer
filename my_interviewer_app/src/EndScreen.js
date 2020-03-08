@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 //import './EndScreen.css'; // make this later
 //import { render } from '@testing-library/react';
 
+import Constants from './Constants'
+
 export class EndScreen extends React.Component {
     render () {
         return (
@@ -12,5 +14,6 @@ export class EndScreen extends React.Component {
         );
     }
 }
+
 
 export default EndScreen;
