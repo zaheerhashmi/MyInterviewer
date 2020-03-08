@@ -12,6 +12,8 @@ import EndScreen from './EndScreen';
 import Error from './Error';
 import { match } from 'assert';
 
+const count = "0"
+
 function App() {
 
   return(

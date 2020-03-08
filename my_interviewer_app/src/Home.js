@@ -4,20 +4,45 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import { withRouter } from "react-router";
 
-import UserInfo from './UserInfo'
 import Constants from './Constants'
+import UserInfo from './UserInfo'
+import App from './App';
+
+import {PythonShell} from 'python-shell';
 
 
 export class Home extends React.Component {
   
-  /*useEffect(() => {
-    console.log("page has rerendered");
-    // make request from API and get list/array of questions
-  }, []); */
+  componentDidMount() {
+    // Fetch all articles before the page loads up
+    this.getQuestions();
+  }
 
-  // get random subset of questions from array of size 3-5 (declare this as a constant)
-  // this would be an array of custom objects
-  // of class that has text and mp3 
+  async getQuestions() {
+     let response = await fetch('http://127.0.0.1:5000/getQuestions')
+     .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      Constants.idList = data["qId"]
+      console.log(Constants.idList)
+
+    });
+  }
+
+  async getId() {
+    console.log(Constants.user._numOfQsAnswered)
+    fetch('http://127.0.0.1:5000/qID/' + Constants.idList[Constants.user._numOfQsAnswered])
+    .then(async (response) => {
+      console.log("HI")
+      return await response.text();
+    })
+    .then((data) => {
+      // console.log(data)
+      Constants.blob = data
+    })
+  }
 
     navToQuestions() {
         console.log("why call")
@@ -53,7 +78,8 @@ export class Home extends React.Component {
             className = "action-button"
             onClick = {
                 () => {this.props.history.push("/question/1");
-                console.log("nav to qs")}}>
+                console.log("nav to qs")
+                this.getId()}}>
                 Start Interview!
             </button>
             </form>

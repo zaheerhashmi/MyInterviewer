@@ -17,14 +17,25 @@ export class Question extends React.Component {
     return (
         <div className="Question">
             <h1>Question page {questionId} </h1>
-            <h2>I will be reading the question</h2>
+            <h2>What are your strengths?</h2>
             <button 
                 title = "play sound"
                 type = "button"
                 className = "action-button"
-                onClick = {() => 
-                    {var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
-                    audio.play();
+                onClick = {async () => 
+                    {
+                        // var url = window.URL.createObjectURL(Constants.blob)
+                        // window.audio = new Audio();
+                        // window.audio.crossOrigin = 'anonymous';
+
+                        // window.audio.src = url;
+                        // window.audio.play();
+                        // var playPromise = document.querySelector('window.audio').play();
+                        // var playPromise = document.querySelector('#audio').src = Constants.blob
+                        // await document.querySelector('#audio').play()
+
+                    //     var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
+                    // audio.play();
                     console.log("play audio");}}>
                     Play Audio
              </button>
@@ -35,6 +46,7 @@ export class Question extends React.Component {
                 className = "action-button"
                 onClick = {
                     () => {Constants.user._numOfQsAnswered = Constants.user._numOfQsAnswered + 1;
+                        console.log(Constants.blob);
                             this.props.history.push(linkToFeedback);}} >
                 See Feedback
             </button>

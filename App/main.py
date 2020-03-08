@@ -13,12 +13,12 @@ from parralelDots import *
 table = pd.read_csv(path.join(path.dirname(__file__), "QuestionData.csv"))
 
 def question(qID):
-    table["Question"][int(qID)]
-    return encodeJson(qID)
+    return table["Question"][int(qID)]
+    # return encodeJson(qID)
 
 def questionsID():
     count_row = table.shape[0]
-    indexes = random.sample(range(1, count_row + 1), 3)
+    indexes = random.sample(range(1, count_row), 3)
     return {"qId": indexes}
 
 def audio(body):
