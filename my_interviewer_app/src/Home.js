@@ -5,6 +5,7 @@ import { render } from '@testing-library/react';
 import { withRouter } from "react-router";
 
 import UserInfo from './UserInfo'
+import Constants from './Constants'
 
 
 export class Home extends React.Component {
@@ -23,9 +24,20 @@ export class Home extends React.Component {
     }
 
     render() {
+        Constants.user = new UserInfo("John", 0, 0);
+        
+
         return (
         <div className="Home">
             <h1>Title</h1>
+            <h1>{JSON.stringify(Constants.user)} 
+            {Constants.user._score = 5}
+            {Constants.user._name = "Jake"}
+            {Constants.user._numOfQsAnswered = 3}
+            <br>
+            </br>
+            {JSON.stringify(Constants.user)} 
+            </h1>
             <h2>{"Quisque eget felis sodales risus volutpat \
                 faucibus non ac libero. Pellentesque eleifend fringilla porta. \
                 Duis eu vestibulum turpis, nec fringilla tortor. Proin posuere"}</h2>
@@ -55,8 +67,6 @@ export class Home extends React.Component {
 // on submit, create new UserInfo instance and figure out how to access that from all parts of the app
 // possibly using nested paths
 
-
-// use link out here instead of this <a> bullshit 
 export default Home;
 
 
