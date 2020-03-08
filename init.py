@@ -12,3 +12,6 @@ os.system("pip install -r requirements.txt")
 
 os.system("pip install --upgrade google-cloud-storage")
 
+os.system("pip install --upgrade google-cloud-texttospeech")
+
+
