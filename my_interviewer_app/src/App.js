@@ -19,29 +19,13 @@ function App() {
     <main>
       <Switch>
         <Route path="/" component = {Home} exact/>
-        <Route path='/question' component = {Question}/>
-        <Route path='/feedback' component = {Feedback}/>
+        <Route path='/question/:questionNum' component = {Question}/>
+        <Route path='/feedback/:feedbackNum' component = {Feedback}/>
         <Route path='/thankyou' component = {EndScreen}/>
         <Route component = {Error} />
       </Switch>
     </main>
   )
-
-/* 
-<Route path="/" component = {Home} exact/>
-        <Route path='/question' component = {Question}/>
-        <Route path='/feedback' component = {Feedback}/>
-        <Route path='/thankyou' component = {EndScreen}/>
-        <Route component = {Error}/>
-        */
-
-
-  /*
-  
-  useEffect(() => {
-    console.log("page has rerendered");
-    // make request from API
-  }, []); */
 }
 
 export default App;

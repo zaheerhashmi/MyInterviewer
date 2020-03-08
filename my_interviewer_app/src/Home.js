@@ -1,21 +1,13 @@
 import React, { useEffect, useState, Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom'; // possibly not needed
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //import './Home.css'; // make this later
 import { render } from '@testing-library/react';
+import { withRouter } from "react-router";
 
 import UserInfo from './UserInfo'
 
 
-const Home = () => {
-
-    const title = "Mock Interviewer"
-
-    const introduction = "Quisque eget felis sodales risus volutpat \
-    faucibus non ac libero. Pellentesque eleifend fringilla porta. \
-    Duis eu vestibulum turpis, nec fringilla tortor. Proin posuere \
-    placerat tellus eget dapibus. Donec vel urna luctus, mattis nibh \
-    ut, mattis dolor. Curabitur luctus nisi porta, pulvinar neque et, \
-    pharetra urna. Sed congue ipsum a dictum mollis. Proin vel purus"
+export class Home extends React.Component {
   
   /*useEffect(() => {
     console.log("page has rerendered");
@@ -26,40 +18,47 @@ const Home = () => {
   // this would be an array of custom objects
   // of class that has text and mp3 
 
-    return (
-        <div className="Home">
-         <h1>{title}</h1>
-         <h2>{introduction}</h2>
-         <form>
-         <label htmlFor="name">Enter your name to continue</label>
-         <input 
-            name="name"
-            onChange = {() => 
+    navToQuestions() {
+        console.log("why call")
+    }
 
-                console.log("text field has edited")
-            }>
-         </input> 
-         <a
-            type="button"
-            href = "/question/1"
-            title="start"
-            target = "_self">
-           Start Interview 
-         </a> 
-         
-         </form>
+    render() {
+        return (
+        <div className="Home">
+            <h1>Title</h1>
+            <h2>{"Quisque eget felis sodales risus volutpat \
+                faucibus non ac libero. Pellentesque eleifend fringilla porta. \
+                Duis eu vestibulum turpis, nec fringilla tortor. Proin posuere"}</h2>
+            <form>
+            <label htmlFor="name">Enter your name to continue</label>
+            <input 
+                name="name"
+                onSubmit = {() => 
+                    console.log("text field has submitted")
+                }>
+            </input>
+            <button
+            title = "start-interview"
+            type = "button"
+            className = "action-button"
+            onClick = {
+                () => {this.props.history.push("/question/1");
+                console.log("nav to qs")}}>
+                Start Interview!
+            </button>
+            </form>
         </div>
       );
+    }
 }
 
-// change action thing back to button of type submit
 // on submit, create new UserInfo instance and figure out how to access that from all parts of the app
-// figure out how to navigate to needed webpage
 // possibly using nested paths
 
 
 // use link out here instead of this <a> bullshit 
 export default Home;
+
 
 /*
 <button 
