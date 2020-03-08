@@ -23,7 +23,6 @@ def delete_blob(bucket_name, blob_name):
     blob.delete()
 
 
-
 def sample_recognize(path):
     """
     Performs synchronous speech recognition on an audio file
@@ -33,8 +32,8 @@ def sample_recognize(path):
     """
     bucket_name = 'newhacks2020'
 
-    credentials = service_account.Credentials.from_service_account_file(
-        './why.json')
+    # credentials = service_account.Credentials.from_service_account_file(
+    #     './why.json')
 
     upload_blob(bucket_name, path, 'Files')
     storage_uri = 'gs://' + bucket_name + '/' + 'Files'
@@ -69,5 +68,7 @@ def sample_recognize(path):
         # First alternative is the most probable result
         alternative = result.alternatives[0]
         print(u"Transcript: {}".format(alternative.transcript))
+
+    return alternative
 
 sample_recognize('C:/Users/Sebestien/Documents/new/audio_files/um.mp3')
