@@ -19,11 +19,6 @@ export class Home extends React.Component {
   // this would be an array of custom objects
   // of class that has text and mp3 
 
-    navToQuestions() {
-        console.log("why call")
-    }
-
-
     render() {
       Constants.user = new UserInfo("John", 0, 0);
         
