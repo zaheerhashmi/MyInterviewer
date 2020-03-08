@@ -15,18 +15,14 @@ export class Feedback extends React.Component {
             <h1> Feedback for question {feedbackId}</h1>
             <h2>I am here to judge your response and help you improve, {Constants.user._name}.</h2>
 
+             <audio id="PlayAnswer" controls="controls" src={Constants.recordedAudioAnswer} type="audio/mp3" />
 
-             <audio controls="controls" src={Constants.recordedAudioAnswer} type="audio/mp3" />
-             <button 
-                title = "play back interview answer"
-                type = "button"
-                className = "action-button"
-                onClick = {() => 
-                    {var audio = new Audio(Constants.recordedAudioAnswer);
-                    audio.play();
-                    console.log("playing my responce");}}>
-                    Play back my answer
-             </button>
+             <button onClick= {() => document.getElementById("PlayAnswer").play()}>
+                 Play
+            </button>
+            <button onClick= {() => document.getElementById("PlayAnswer").pause()}>
+                 Pause
+            </button>
 
             <button
             title = "next-question"

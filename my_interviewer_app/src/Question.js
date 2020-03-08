@@ -41,7 +41,7 @@ export class Question extends React.Component {
         console.log('recordedBlob is: ', recordedBlob);
         Constants.recordAudioAnswer = recordedBlob.blobURL;
         // have option to play this URL
-        console.log('in constants: ', Constants.recordAudioAnswer);
+       // console.log('in constants: ', Constants.recordAudioAnswer);
       }
 
 
