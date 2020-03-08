@@ -1,7 +1,7 @@
 import os
 
 print("Make sure to install CLOUD SDK")
-
+# https://cloud.google.com/sdk/docs
 print("Make sure to make a venv and activate it!")
 # py -m venv venv
 # .\venv\Scripts\activate
