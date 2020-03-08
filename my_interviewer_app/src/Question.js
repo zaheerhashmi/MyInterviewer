@@ -4,14 +4,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'; // possibly not
 //import { render } from '@testing-library/react';
 
 const Question = ({match}) => {
-  
-  /*useEffect(() => {
-    console.log("page has rerendered");
-    // make request from API
-  }, []); */
-
-  //var path = `${match.path}/:hey`
-
     return (
         <div className="Question">
          <Switch>
@@ -20,11 +12,17 @@ const Question = ({match}) => {
                 render={props => 
                     (<div>
                       <h1>Question page {props.match.params.questionNumber}</h1>
-                     </div>
-                )
-                    }/>
+                      <h2>I will be reading the question</h2>
+                        <a
+                            type="button"
+                            href = '/question/2'
+                            title="start"
+                            target = "_self">
+                            Next question
+                        </a> 
+                     </div>)
+                }/>
          </Switch>
-         <h2>I will be reading the question</h2>
         </div>
       );
     }

@@ -3,6 +3,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'; // possibly not
 //import './Home.css'; // make this later
 import { render } from '@testing-library/react';
 
+import UserInfo from './UserInfo'
+
+
 const Home = () => {
 
     const title = "Mock Interviewer"
@@ -29,11 +32,46 @@ const Home = () => {
          <h2>{introduction}</h2>
          <form>
          <label htmlFor="name">Enter your name to continue</label>
-         <input name="name"></input> 
-         <button type="submit">
-           Start 
-         </button> 
+         <input 
+            name="name"
+            onChange = {() => 
+
+                console.log("text field has edited")
+            }>
+         </input> 
          <a
+            type="button"
+            href = "/question/1"
+            title="start"
+            target = "_self">
+           Start Interview 
+         </a> 
+         
+         </form>
+        </div>
+      );
+}
+
+// change action thing back to button of type submit
+// on submit, create new UserInfo instance and figure out how to access that from all parts of the app
+// figure out how to navigate to needed webpage
+// possibly using nested paths
+
+
+// use link out here instead of this <a> bullshit 
+export default Home;
+
+/*
+<button 
+            type="button"
+            title="start"
+            onClick={() => console.log("gggg")}>
+           Start Interview 
+         </button> 
+*/
+
+/* link
+<a
          type = "button"
          href = "https://google.com"
          title = "google"
@@ -41,9 +79,5 @@ const Home = () => {
          >
            Link
          </a>
-         </form>
-        </div>
-      );
-}
 
-export default Home;
+*/
