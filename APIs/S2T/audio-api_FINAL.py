@@ -3,6 +3,8 @@ from google.cloud.speech_v1p1beta1 import enums
 from google.cloud import storage
 import json
 from google.oauth2 import service_account
+import sys
+
 
 def upload_blob(bucket_name, path, destination_blob_name):
     """Uploads a file to the bucket."""
@@ -23,6 +25,7 @@ def delete_blob(bucket_name, blob_name):
     blob.delete()
 
 
+
 def sample_recognize(path):
     """
     Performs synchronous speech recognition on an audio file
@@ -31,9 +34,6 @@ def sample_recognize(path):
       storage_uri URI for audio file in Cloud Storage, e.g. gs://[BUCKET]/[FILE]
     """
     bucket_name = 'newhacks2020'
-
-    # credentials = service_account.Credentials.from_service_account_file(
-    #     './why.json')
 
     upload_blob(bucket_name, path, 'Files')
     storage_uri = 'gs://' + bucket_name + '/' + 'Files'
@@ -69,6 +69,8 @@ def sample_recognize(path):
         alternative = result.alternatives[0]
         print(u"Transcript: {}".format(alternative.transcript))
 
-    return alternative
 
-sample_recognize('C:/Users/Sebestien/Documents/new/audio_files/um.mp3')
+
+if __name__=="__main__":
+    lst = sys.argv
+    sample_recognize('./APIs/audio_files/' + str(lst[1]))
