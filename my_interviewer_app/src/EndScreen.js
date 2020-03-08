@@ -9,7 +9,8 @@ export class EndScreen extends React.Component {
     render () {
         return (
             <div className="EndScreen">
-            <h2>thanks for hanging out bye</h2>
+            <h1>Thank you for using our app!</h1>
+            <h2>We hope you feel more confident in interviewing now.</h2>
             </div>
         );
     }

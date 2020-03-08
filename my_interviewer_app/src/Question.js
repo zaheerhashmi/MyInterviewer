@@ -39,6 +39,9 @@ export class Question extends React.Component {
      
       onStop(recordedBlob) {
         console.log('recordedBlob is: ', recordedBlob);
+        Constants.recordAudioAnswer = recordedBlob.blobURL;
+        // have option to play this URL
+        console.log('in constants: ', Constants.recordAudioAnswer);
       }
 
 
@@ -49,8 +52,8 @@ export class Question extends React.Component {
 
     return (
         <div className="Question">
-            <h1>Question page {questionId} </h1>
-            <h2>Press button to read the question:</h2>
+            <h1>Question {questionId} </h1>
+            <p>Press button to hear the question:</p>
             <button 
                 title = "play sound"
                 type = "button"
@@ -59,9 +62,11 @@ export class Question extends React.Component {
                     {var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
                     audio.play();
                     console.log("play audio");}}>
-                    Play Audio
+                    Hear Interview Question
              </button>
-             <br></br>
+
+<br></br>
+<br></br>
 
             <div>
              <ReactMic
@@ -70,28 +75,29 @@ export class Question extends React.Component {
                 onStop={this.onStop}
                 onData={this.onData}
                 strokeColor="#000000"
-                backgroundColor="#FF4081" />
+                backgroundColor= "#FF5858" />
                 <button onClick={this.startRecording} 
                 type="button"
                 className = "action-button">
-                    Start
+                    Start recording
                 </button>
                 <button onClick={this.stopRecording} 
                 type="button"
-                className = "action-button">>
-                    Stop
+                className = "action-button">
+                    Stop recording
                 </button>
             </div>
 
-            <button
-                title = "next-question"
-                type = "button"
-                className = "action-button"
-                onClick = {
-                    () => {Constants.user._numOfQsAnswered = Constants.user._numOfQsAnswered + 1;
-                            this.props.history.push(linkToFeedback);}} >
-                See Feedback
-            </button>
+<br></br>
+       <button
+            title = "next-question"
+            type = "button"
+            className = "action-button"
+            onClick = {
+                () => {Constants.user._numOfQsAnswered = Constants.user._numOfQsAnswered + 1;
+                    this.props.history.push(linkToFeedback);}} >
+            See Feedback
+        </button> 
             </div>
       );
     }

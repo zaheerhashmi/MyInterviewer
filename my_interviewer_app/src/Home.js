@@ -30,10 +30,10 @@ export class Home extends React.Component {
 
         return (
         <div className="Home">
-            <h1>Title</h1>
-            <h2>{"Quisque eget felis sodales risus volutpat \
-                faucibus non ac libero. Pellentesque eleifend fringilla porta. \
-                Duis eu vestibulum turpis, nec fringilla tortor. Proin posuere"}</h2>
+            <h1>MyInterviewer</h1>
+            <h2>{"Welcome to our own personal interviewer, \
+                available to practice at your convenience \
+                with the aim to help you master your interview skills!"}</h2>
             <form>
             <label htmlFor="name">Enter your name to continue</label>
             <input 
