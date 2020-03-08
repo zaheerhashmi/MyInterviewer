@@ -23,14 +23,22 @@ function App() {
 
   return (
     <div className="App">
-    <form>
      <h1>{title}</h1>
      <h2>{introduction}</h2>
-     <label for="name">Enter your name to continue</label>
+     <form>
+     <label htmlFor="name">Enter your name to continue</label>
      <input name="name"></input>
      <button type="submit">
        Start
      </button>
+     <a
+     type = "button"
+     href = "https://google.com"
+     title = "google"
+     target = "_self"
+     >
+       Link
+     </a>
      </form>
     </div>
   );
