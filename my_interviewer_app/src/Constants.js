@@ -8,9 +8,8 @@ var user = new UserInfo("", 0, 0)
 
 var idList = []
 
-var blob = ""
+var bucket = {}
 
-export default Constants;
 var recordedAudioAnswer = ""
 
 export default Constants

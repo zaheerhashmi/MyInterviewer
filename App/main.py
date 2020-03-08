@@ -4,21 +4,24 @@ import pandas as pd
 import random
 from base64 import b64encode
 from json import dumps
-
 import sys
 sys.path.insert(0, './APIs')
 
 from parralelDots import *
+sys.path.insert(0, './APIs/T2S')
+from text2speech import *
 
 table = pd.read_csv(path.join(path.dirname(__file__), "QuestionData.csv"))
 
 def question(qID):
-    return table["Question"][int(qID)]
+    question = table["Question"][int(qID)]
+    print(question)
+    return {"url": text2speech(question), "question": question}
     # return encodeJson(qID)
 
 def questionsID():
     count_row = table.shape[0]
-    indexes = random.sample(range(1, count_row), 3)
+    indexes = random.sample(range(0, count_row), 3)
     return {"qId": indexes}
 
 def audio(body):
@@ -28,7 +31,7 @@ def audio(body):
     row = table.loc[table['qID'] == qID]
     body["Question"] = row["Question"][0]
     body["Keywords"] = row["Keywords"][0]
-    return "JHI"
+    return answerScore
     # return assessText(body)
 
 # Given a question object which inclues:

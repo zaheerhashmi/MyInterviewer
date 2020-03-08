@@ -19,7 +19,7 @@ export class Home extends React.Component {
   }
 
   async getQuestions() {
-     let response = await fetch('http://127.0.0.1:5000/getQuestions')
+     fetch('http://127.0.0.1:5000/getQuestions')
      .then((response) => {
       return response.json();
     })
@@ -32,15 +32,14 @@ export class Home extends React.Component {
   }
 
   async getId() {
-    console.log(Constants.user._numOfQsAnswered)
     fetch('http://127.0.0.1:5000/qID/' + Constants.idList[Constants.user._numOfQsAnswered])
     .then(async (response) => {
       console.log("HI")
-      return await response.text();
+      return await response.json();
     })
     .then((data) => {
       // console.log(data)
-      Constants.blob = data
+      Constants.bucket = data
     })
   }
 

@@ -3,11 +3,14 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'; // possibly not
 //import './Question.css'; // make this later
 //import { render } from '@testing-library/react';
 import { withRouter } from "react-router";
+import MicRecorder from 'mic-recorder-to-mp3';
 
 import { ReactMic } from 'react-mic';
 
 
 import Constants from './Constants'
+
+const Mp3Recorder = new MicRecorder({ bitRate: 128 });
 
 
 export class Question extends React.Component {
@@ -15,11 +18,12 @@ export class Question extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-          record: false
+          record: false,
+          isRecording: false,
+          blobURL: '',
+          isBlocked: false,
         }
-     
       }
-
 
       startRecording = () => {
         this.setState({
@@ -44,6 +48,27 @@ export class Question extends React.Component {
        // console.log('in constants: ', Constants.recordAudioAnswer);
       }
 
+    start = () => {
+      if (this.state.isBlocked) {
+        console.log('Permission Denied');
+        } else {
+          Mp3Recorder
+            .start()
+            .then(() => {
+              this.setState({ isRecording: true });
+            }).catch((e) => console.error(e));
+        }
+      };
+
+    stop = () => {
+        Mp3Recorder
+          .stop()
+          .getMp3()
+          .then(([buffer, blob]) => {
+            const blobURL = URL.createObjectURL(blob)
+            this.setState({ blobURL, isRecording: false });
+          }).catch((e) => console.log(e));
+      };
 
     render(){
 
@@ -60,39 +85,23 @@ export class Question extends React.Component {
                 className = "action-button"
                 onClick = {async () => 
                     {
-                        // var url = window.URL.createObjectURL(Constants.blob)
-                        // window.audio = new Audio();
-                        // window.audio.crossOrigin = 'anonymous';
-
-                        // window.audio.src = url;
-                        // window.audio.play();
-                        // var playPromise = document.querySelector('window.audio').play();
-                        // var playPromise = document.querySelector('#audio').src = Constants.blob
-                        // await document.querySelector('#audio').play()
-
-                    //     var audio = new Audio('https://interactive-examples.mdn.mozilla.net/media/examples/t-rex-roar.mp3');
-                    // audio.play();
+                    var audio = new Audio("http://storage.googleapis.com/" + Constants.bucket["url"]);
+                    audio.play();
                     console.log("play audio");}}>
                     Hear Interview Question
              </button>
+<audio src={this.state.blobURL} controls="controls" />
 
 <br></br>
 <br></br>
 
             <div>
-             <ReactMic
-                record={this.state.record}
-                className="sound-wave"
-                onStop={this.onStop}
-                onData={this.onData}
-                strokeColor="#000000"
-                backgroundColor= "#FF5858" />
-                <button onClick={this.startRecording} 
+                <button onClick={this.start} disabled={this.state.isRecording}
                 type="button"
                 className = "action-button">
                     Start recording
                 </button>
-                <button onClick={this.stopRecording} 
+                <button onClick={this.stop} disabled={!this.state.isRecording}
                 type="button"
                 className = "action-button">
                     Stop recording
