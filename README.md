@@ -31,7 +31,7 @@ Naz
 
 ## What I learned
 
-Sebestien & Muhammad
+Sebestien & Muhammad Zaheer Hashmi
 * google cloud and apis
 * node.js basics
 * file directory system
